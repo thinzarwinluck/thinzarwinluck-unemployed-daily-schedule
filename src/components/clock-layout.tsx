@@ -52,13 +52,29 @@ const ClockLayoutComponent = () => {
   const [secondAngle, setSecondAngle] = useState(seconds * 6);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      setHourAngle(((now.getHours() % 24) + now.getMinutes() / 60) * 15);
-      setSecondAngle(now.getSeconds() * 6);
-    }, 10);
+    let frameId: number;
 
-    return () => clearInterval(interval);
+    const updateClock = () => {
+      const now = new Date();
+
+      const hours = now.getHours() % 24;
+
+      const minutes = now.getMinutes();
+
+      const seconds = now.getSeconds();
+
+      const ms = now.getMilliseconds();
+
+      setHourAngle((hours + minutes / 60 + seconds / 3600) * 15);
+
+      setSecondAngle((seconds + ms / 1000) * 6);
+
+      frameId = requestAnimationFrame(updateClock);
+    };
+
+    updateClock();
+
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   return (
