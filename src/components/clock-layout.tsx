@@ -56,7 +56,7 @@ const ClockLayoutComponent = () => {
       const now = new Date();
       setHourAngle(((now.getHours() % 24) + now.getMinutes() / 60) * 15);
       setSecondAngle(now.getSeconds() * 6);
-    }, 1000);
+    }, 10);
 
     return () => clearInterval(interval);
   }, []);
