@@ -1,6 +1,6 @@
 # My Awesome Project
 
-This project is a web application that allows my schedule to track their daily tasks and goals.
+This project is a web application that allows my schedule to track my daily tasks and goals.
 
 ## Installation
 
