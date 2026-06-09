@@ -1,18 +1,8 @@
+"use client";
 import { clockData, myDailyActivity } from "@/mock/clock";
-import {
-  ArrowBigDown,
-  ArrowUp,
-  ChevronDownIcon,
-  ChevronUpCircle,
-  ChevronUpIcon,
-  PlayIcon,
-  Star,
-  StarIcon,
-  StarOff,
-  StarOffIcon,
-  Stars,
-} from "lucide-react";
+import { Star } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const CENTER = 50;
 const RADIUS = 53;
@@ -203,7 +193,19 @@ const ClockLayoutComponent = () => {
   const hours = now.getHours() % 24;
   const minutes = now.getMinutes();
 
-  const hourAngle = (hours + minutes / 60) * 15; // 360/24 = 15
+  const [hourAngle, setHourAngle] = useState((hours + minutes / 60) * 15);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const hours = now.getHours() % 24;
+      const minutes = now.getMinutes();
+      const newHourAngle = (hours + minutes / 60) * 15;
+      setHourAngle(newHourAngle);
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section className="border rounded-full size-[85vh] relative ">
       <ActivitySectors />
