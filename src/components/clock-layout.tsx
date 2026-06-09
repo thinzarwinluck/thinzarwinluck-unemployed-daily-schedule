@@ -105,6 +105,23 @@ const DrawHourHand = ({ angle }: { angle: number }) => {
   );
 };
 
+const DrawSecondHand = ({ angle }: { angle: number }) => {
+  return (
+    <div
+      className="absolute bg-zinc-500 text-zinc-500"
+      style={{
+        width: "2px",
+        height: "45%",
+        left: "50%",
+        top: "50%",
+        transform: `translate(-50%, -100%) rotate(${angle}deg)`,
+        transformOrigin: "bottom center",
+        zIndex: 1000,
+      }}
+    ></div>
+  );
+};
+
 const ACTIVITY_RADIUS = 37;
 
 const DrawActivity = ({
@@ -192,8 +209,10 @@ const ClockLayoutComponent = () => {
   const now = new Date();
   const hours = now.getHours() % 24;
   const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
 
   const [hourAngle, setHourAngle] = useState((hours + minutes / 60) * 15);
+  const [secondAngle, setSecondAngle] = useState(seconds * 6);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -204,8 +223,18 @@ const ClockLayoutComponent = () => {
       setHourAngle(newHourAngle);
     }, 60000);
 
-    return () => clearInterval(interval);
+    const secondInterval = setInterval(() => {
+      const now = new Date();
+      const seconds = now.getSeconds();
+      setSecondAngle(seconds * 6);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(secondInterval);
+    };
   }, []);
+
   return (
     <section className="border rounded-full size-[85vh] relative ">
       <ActivitySectors />
@@ -216,7 +245,7 @@ const ClockLayoutComponent = () => {
 
       {/* hands */}
       <DrawHourHand angle={hourAngle} />
-
+      <DrawSecondHand angle={secondAngle} />
       {/* center dot */}
       <Star className="absolute rounded-full size-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 fill-zinc-500 text-zinc-500" />
 
