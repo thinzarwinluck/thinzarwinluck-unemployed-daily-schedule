@@ -1,6 +1,14 @@
 import { CLOCK_CONST } from "../constants/clock";
+import { useEffect, useState } from "react";
 
 const DrawNumber = ({ label, angle }: { label: string; angle: number }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 40);
+    return () => clearTimeout(t);
+  }, []);
+
   const rad = (angle * Math.PI) / 180;
 
   const x = CLOCK_CONST.CENTER + CLOCK_CONST.RADIUS * Math.sin(rad);
@@ -8,7 +16,7 @@ const DrawNumber = ({ label, angle }: { label: string; angle: number }) => {
 
   return (
     <p
-      className="absolute origin-center text-black"
+      className={`absolute origin-center text-black ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} transition-all duration-500`}
       style={{
         left: `${x}%`,
         top: `${y}%`,

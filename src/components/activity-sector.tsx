@@ -1,4 +1,5 @@
 import { myDailyActivity } from "@/mock/clock";
+import { useEffect, useState } from "react";
 
 const polarToCartesian = (
   cx: number,
@@ -35,6 +36,13 @@ const createArcPath = (
 };
 
 const ActivitySectors = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 80);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
       {myDailyActivity.map((activity) => {
@@ -52,7 +60,12 @@ const ActivitySectors = () => {
               endAngle,
             )}
             fill={activity.color}
-            opacity={0.25}
+            style={{
+              opacity: mounted ? 0.25 : 0,
+              transformOrigin: '50% 50%',
+              transform: mounted ? 'scale(1)' : 'scale(0.96)',
+              transition: 'opacity 600ms ease-out, transform 600ms ease-out',
+            }}
             stroke="white"
             strokeWidth="0.5"
           />

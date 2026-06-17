@@ -5,18 +5,20 @@ export const DrawHands = ({
   angle: number;
   handType: "hour" | "second";
 }) => {
+  const isHour = handType === "hour";
+
   return (
     <div
-      className="absolute bg-zinc-500 text-zinc-500"
+      className={`absolute bg-zinc-500 text-zinc-500 ${isHour ? 'rounded-[2px]' : 'rounded-[1px]'} transition-transform ${isHour ? 'duration-500 ease-out' : 'duration-150 linear'} will-change-transform`}
       style={{
-        width: handType === "hour" ? "4px" : "2px",
-        height: handType === "hour" ? "40%" : "45%",
+        width: isHour ? "4px" : "2px",
+        height: isHour ? "40%" : "45%",
         left: "50%",
         top: "50%",
         transform: `translate(-50%, -100%) rotate(${angle}deg)`,
         transformOrigin: "bottom center",
         zIndex: handType === "second" ? 1000 : 0,
       }}
-    ></div>
+    />
   );
 };
