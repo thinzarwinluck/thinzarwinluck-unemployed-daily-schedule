@@ -47,9 +47,7 @@ const DrawActivity = ({
           alt={title}
           width={48}
           height={48}
-          style={{
-            display: 'block'
-          }}
+          className="object-cover w-full h-full"
         />
       </div>
       <p className="text-black mt-1 text-center">{title}</p>
