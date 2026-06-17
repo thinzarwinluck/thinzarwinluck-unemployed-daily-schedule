@@ -34,14 +34,14 @@ const DrawActivity = ({
 
   return (
     <div
-      className={`absolute text-xs font-semibold ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} transition-all duration-500`}
+      className={`absolute font-semibold ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} transition-all duration-500 flex flex-col items-center gap-1`}
       style={{
         left: `${x}%`,
         top: `${y}%`,
         transform: "translate(-50%, -50%)",
       }}
     >
-      <div className="w-12 h-12 overflow-hidden rounded-xl shadow-md">
+      <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 overflow-hidden rounded-xl shadow-md">
         <Image
           src={`/activity/${image}`}
           alt={title}
@@ -50,7 +50,7 @@ const DrawActivity = ({
           className="object-cover w-full h-full"
         />
       </div>
-      <p className="text-black mt-1 text-center">{title}</p>
+      <p className="text-black mt-1 text-center text-[10px] sm:text-xs md:text-sm hidden sm:block">{title}</p>
     </div>
   );
 };
