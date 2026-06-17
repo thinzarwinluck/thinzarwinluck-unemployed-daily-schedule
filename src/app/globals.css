@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b0f1a; /* deep gaming navy */
-  --foreground: #e6f6ff; /* soft cyan */
-  --accent: #ff4d8d; /* neon magenta */
-  --accent-2: #00f5a0; /* neon green */
+  /* Default to light-pink theme */
+  --background: #fff6fb; /* very light pink */
+  --foreground: #2b0b1f; /* deep rose for contrast */
+  --accent: #ff85c1; /* soft neon pink */
+  --accent-2: #ffd1e8; /* pale pink */
   --font-pixel: 'Press Start 2P', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
 }
 

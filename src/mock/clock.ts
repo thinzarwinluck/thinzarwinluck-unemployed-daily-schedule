@@ -35,7 +35,7 @@ export const myDailyActivity = [
   },
   {
     image: "seekjob.png",
-    title: "Job Seeking",
+    title: "Job",
     start: 10,
     end: 11,
     color: "#60A5FA",
@@ -56,21 +56,21 @@ export const myDailyActivity = [
   },
   {
     image: "seekjob2.jpg",
-    title: "Job Seeking",
+    title: "Job",
     start: 13,
     end: 14,
     color: "#FB923C",
   },
   {
     image: "learning2.png",
-    title: "Learning & Coding",
+    title: "Learning",
     start: 14,
     end: 18,
     color: "#F472B6",
   },
   {
     image: "chill.png",
-    title: "Free Time",
+    title: "Chill",
     start: 18,
     end: 21,
     color: "#22D3EE",
@@ -84,7 +84,7 @@ export const myDailyActivity = [
   },
   {
     image: "phone.png",
-    title: "Sleep Preparation",
+    title: "Prep",
     start: 22,
     end: 24,
     color: "#94A3B8",

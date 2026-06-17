@@ -12,7 +12,7 @@ async function pixelateFile(file) {
   try {
     const img = sharp(input);
     const meta = await img.metadata();
-    const smallWidth = 16; // downscale width
+    const smallWidth = parseInt(process.env.SMALL_WIDTH, 10) || 16; // downscale width (env SMALL_WIDTH)
     const outWidth = Math.max(48, meta.width ? Math.min(meta.width, 48) : 48);
 
     // downscale then upscale using nearest-neighbor for pixel effect
@@ -28,7 +28,8 @@ async function pixelateFile(file) {
 }
 
 async function run() {
-  const files = fs.readdirSync(dir).filter(f => /\.(png|jpe?g)$/i.test(f));
+  // Only process original source images, skip already-generated px- files
+  const files = fs.readdirSync(dir).filter(f => /\.(png|jpe?g)$/i.test(f) && !/^px\-/.test(f));
   for (const f of files) {
     await pixelateFile(f);
   }

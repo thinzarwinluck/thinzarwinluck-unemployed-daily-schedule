@@ -43,14 +43,14 @@ const DrawActivity = ({
     >
       <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 overflow-hidden rounded-xl shadow-md">
         <Image
-          src={`/activity/pixel-panda.svg`}
-          alt={`${title} — pixel panda`}
+          src={`/activity/px-${image.replace(/\.[^/.]+$/, '')}.png`}
+          alt={title}
           width={48}
           height={48}
           className="object-cover w-full h-full"
         />
       </div>
-      <p className="text-black mt-1 text-center text-[10px] sm:text-xs md:text-sm hidden sm:block">{title}</p>
+      <p style={{ color: 'var(--foreground)' }} className="mt-1 text-center text-[10px] sm:text-xs md:text-sm hidden sm:block">{title}</p>
     </div>
   );
 };
