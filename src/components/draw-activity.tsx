@@ -50,7 +50,8 @@ const DrawActivity = ({
           className="object-cover w-full h-full"
         />
       </div>
-      <p style={{ color: 'var(--foreground)' }} className="mt-1 text-center text-[10px] sm:text-xs md:text-sm hidden sm:block">{title}</p>
+      <p style={{ color: 'var(--foreground)' }} className="mt-1 text-center text-[10px] sm:text-xs md:text-sm hidden sm:block wrap-break-word"
+      >{title}</p>
     </div>
   );
 };

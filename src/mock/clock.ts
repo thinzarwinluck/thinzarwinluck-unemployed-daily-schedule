@@ -42,7 +42,7 @@ export const myDailyActivity = [
   },
   {
     image: "learn.png",
-    title: "Learning",
+    title: "Learn",
     start: 11,
     end: 12,
     color: "#34D399",
@@ -63,7 +63,7 @@ export const myDailyActivity = [
   },
   {
     image: "learning2.png",
-    title: "Learning",
+    title: "Learn",
     start: 14,
     end: 18,
     color: "#F472B6",
@@ -77,7 +77,7 @@ export const myDailyActivity = [
   },
   {
     image: "prayer.png",
-    title: "Prayer",
+    title: "",
     start: 21,
     end: 22,
     color: "#C084FC",
