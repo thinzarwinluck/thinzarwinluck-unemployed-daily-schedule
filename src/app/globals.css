@@ -63,3 +63,57 @@ svg {
   stroke: var(--accent);
   stroke-width: .5;
 }
+
+/* Clock UI base */
+.clock-ui {
+  width: min(85vh, 85vmin);
+  height: min(85vh, 85vmin);
+  max-width: 95vmin;
+  margin: 0 auto;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.02), transparent 30%);
+  border: 6px solid rgba(0,0,0,0.06);
+}
+
+/* Gaming (pixel) theme for clock */
+.gaming-clock {
+  --gc-bg-1: #050714; /* deep */
+  --gc-bg-2: #0b1224;
+  --gc-neon: #ff4d8d;
+  --gc-neon-2: #00f5a0;
+  background: radial-gradient(circle at 40% 35%, var(--gc-bg-2), var(--gc-bg-1));
+  border: 4px solid rgba(255,77,141,0.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 16px rgba(255,77,141,0.06) inset;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+.gaming-clock svg line {
+  stroke: rgba(255,133,193,0.9);
+}
+
+.gaming-clock svg path {
+  stroke: rgba(255,255,255,0.06);
+}
+
+.gaming-clock .clock-number span {
+  color: var(--gc-neon-2);
+  text-shadow: 0 0 6px rgba(0,245,160,0.12), 0 0 2px rgba(255,77,141,0.06);
+  font-size: 1.25rem;
+}
+
+.gaming-clock .clock-hand.hour {
+  background: linear-gradient(180deg, var(--gc-neon), var(--gc-neon-2));
+  box-shadow: 0 4px 0 rgba(0,0,0,0.5);
+}
+
+.gaming-clock .clock-hand.second {
+  background: var(--gc-neon-2);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.45);
+}
+
+.gaming-clock .star-center {
+  color: var(--gc-neon);
+  filter: drop-shadow(0 0 6px rgba(255,77,141,0.25));
+}

@@ -9,7 +9,7 @@ export const DrawHands = ({
 
   return (
     <div
-      className={`absolute bg-zinc-500 text-zinc-500 ${isHour ? 'rounded-[2px]' : 'rounded-[1px]'} transition-transform ${isHour ? 'duration-500 ease-out' : 'duration-150 linear'} will-change-transform`}
+      className={`absolute clock-hand ${isHour ? 'hour rounded-[2px]' : 'second rounded-[1px]'} transition-transform ${isHour ? 'duration-500 ease-out' : 'duration-150 linear'} will-change-transform`}
       style={{
         width: isHour ? "4px" : "2px",
         height: isHour ? "40%" : "45%",

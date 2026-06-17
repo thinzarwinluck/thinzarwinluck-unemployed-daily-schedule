@@ -78,7 +78,7 @@ const ClockLayoutComponent = () => {
   }, []);
 
   return (
-    <section className="border rounded-full size-[85vh] relative ">
+    <section className="clock-ui gaming-clock border rounded-full size-[85vh] relative ">
       <ActivitySectors />
       <ClockBorder />
       {data.map((hour) => (
@@ -89,7 +89,7 @@ const ClockLayoutComponent = () => {
       <DrawHands angle={hourAngle} handType="hour" />
       <DrawHands angle={secondAngle} handType="second" />
       {/* center dot */}
-      <Star className="absolute rounded-full size-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 fill-zinc-500 text-zinc-500" />
+      <Star className="star-center absolute rounded-full size-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 fill-zinc-500 text-zinc-500" />
 
       {/* wanna add daily activity */}
       {myDailyActivity.map((activity) => (

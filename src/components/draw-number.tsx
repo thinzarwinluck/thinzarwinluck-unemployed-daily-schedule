@@ -16,7 +16,7 @@ const DrawNumber = ({ label, angle }: { label: string; angle: number }) => {
 
   return (
     <p
-      className={`absolute origin-center text-black ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} transition-all duration-500`}
+      className={`absolute origin-center clock-number ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} transition-all duration-500`}
       style={{
         left: `${x}%`,
         top: `${y}%`,
