@@ -37,13 +37,21 @@ body {
   image-rendering: crisp-edges;
 }
 
+/* Light pink theme variant */
+.light-pink {
+  --background: #fff6fb; /* very light pink */
+  --foreground: #2b0b1f; /* deep rose for contrast */
+  --accent: #ff85c1; /* soft neon pink */
+  --accent-2: #ffd1e8; /* pale pink */
+}
+
 /* Example accent utilities */
 .btn-primary {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   color: #000;
   padding: .5rem 1rem;
   border-radius: 6px;
-  box-shadow: 0 6px 0 rgba(0,0,0,0.4);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.08);
   font-weight: 700;
   font-family: var(--font-pixel);
 }

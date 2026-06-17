@@ -43,8 +43,8 @@ const DrawActivity = ({
     >
       <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 overflow-hidden rounded-xl shadow-md">
         <Image
-          src={`/activity/${image}`}
-          alt={title}
+          src={`/activity/pixel-panda.svg`}
+          alt={`${title} — pixel panda`}
           width={48}
           height={48}
           className="object-cover w-full h-full"
